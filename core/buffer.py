@@ -5,7 +5,7 @@ from torch.multiprocessing import Manager
 from core.mod_utils import compute_stats
 
 
-class Buffer():
+class Buffer:
 	"""Cyclic Buffer stores experience tuples from the rollouts
 		Parameters:
 			capacity (int): Maximum number of experiences to hold in cyclic buffer
@@ -96,6 +96,8 @@ class Buffer():
 			ind_global = random.sample(self.top_g, num_global)
 
 			ind = ind[num_r+num_global:] + ind_r + ind_global
+
+		#print(self.sT[ind], self.nsT[ind], self.aT[ind], self.rT[ind], self.doneT[ind], self.global_rewardT[ind])
 
 
 		return self.sT[ind], self.nsT[ind], self.aT[ind], self.rT[ind], self.doneT[ind], self.global_rewardT[ind]
